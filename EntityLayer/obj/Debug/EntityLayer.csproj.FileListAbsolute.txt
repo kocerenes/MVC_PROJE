@@ -1,0 +1,12 @@
+C:\Users\enes\source\repos\MvcForumSiteProjesi\EntityLayer\bin\Debug\EntityLayer.dll.config
+C:\Users\enes\source\repos\MvcForumSiteProjesi\EntityLayer\bin\Debug\EntityLayer.dll
+C:\Users\enes\source\repos\MvcForumSiteProjesi\EntityLayer\bin\Debug\EntityLayer.pdb
+C:\Users\enes\source\repos\MvcForumSiteProjesi\EntityLayer\bin\Debug\EntityFramework.dll
+C:\Users\enes\source\repos\MvcForumSiteProjesi\EntityLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\enes\source\repos\MvcForumSiteProjesi\EntityLayer\bin\Debug\EntityFramework.xml
+C:\Users\enes\source\repos\MvcForumSiteProjesi\EntityLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\enes\source\repos\MvcForumSiteProjesi\EntityLayer\obj\Debug\EntityLayer.csprojAssemblyReference.cache
+C:\Users\enes\source\repos\MvcForumSiteProjesi\EntityLayer\obj\Debug\EntityLayer.csproj.CoreCompileInputs.cache
+C:\Users\enes\source\repos\MvcForumSiteProjesi\EntityLayer\obj\Debug\EntityLayer.csproj.CopyComplete
+C:\Users\enes\source\repos\MvcForumSiteProjesi\EntityLayer\obj\Debug\EntityLayer.dll
+C:\Users\enes\source\repos\MvcForumSiteProjesi\EntityLayer\obj\Debug\EntityLayer.pdb
