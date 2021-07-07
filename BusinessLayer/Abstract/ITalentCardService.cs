@@ -10,5 +10,9 @@ namespace BusinessLayer.Abstract
     public interface ITalentCardService
     {
         List<TalentCard> GetAll();
+        TalentCard GetById(int id);
+        void Add(TalentCard talent);
+        void Update(TalentCard talent);
+        void Delete(TalentCard talent);
     }
 }

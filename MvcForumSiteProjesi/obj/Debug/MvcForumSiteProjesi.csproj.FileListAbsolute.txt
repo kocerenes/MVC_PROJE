@@ -92,3 +92,7 @@ C:\Users\enes\source\repos\MvcForumSiteProjesi\MvcForumSiteProjesi\bin\EntityFra
 C:\Users\enes\source\repos\MvcForumSiteProjesi\MvcForumSiteProjesi\bin\EntityFramework.SqlServer.xml
 C:\Users\enes\source\repos\MvcForumSiteProjesi\MvcForumSiteProjesi\bin\FluentValidation.dll
 C:\Users\enes\source\repos\MvcForumSiteProjesi\MvcForumSiteProjesi\bin\FluentValidation.xml
+C:\Users\enes\source\repos\MvcForumSiteProjesi\MvcForumSiteProjesi\bin\PagedList.dll
+C:\Users\enes\source\repos\MvcForumSiteProjesi\MvcForumSiteProjesi\bin\PagedList.Mvc.dll
+C:\Users\enes\source\repos\MvcForumSiteProjesi\MvcForumSiteProjesi\bin\PagedList.xml
+C:\Users\enes\source\repos\MvcForumSiteProjesi\MvcForumSiteProjesi\bin\PagedList.Mvc.xml

@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Newtonsoft.Json;
 using System;
@@ -16,6 +18,9 @@ namespace MvcForumSiteProjesi.Controllers
     [AllowAnonymous]
     public class LoginController : Controller
     {
+
+        WriterLoginManager writerLoginManager = new WriterLoginManager(new EfWriterDal());
+
         // GET: Admin
 
         [HttpGet]
@@ -67,8 +72,10 @@ namespace MvcForumSiteProjesi.Controllers
             //hashleme
 
 
-            Context context = new Context();
-            var writerUserInfo = context.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
+            //Context context = new Context();
+            //var writerUserInfo = context.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
+
+            var writerUserInfo = writerLoginManager.GetWriter(writer.WriterMail, writer.WriterPassword);
 
             //ben robot değilim
             var response = Request["g-recaptcha-response"];
@@ -95,6 +102,14 @@ namespace MvcForumSiteProjesi.Controllers
             {
                 return RedirectToAction("WriterLogin");
             }
+        }
+
+        //çıkış yapma
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon(); //oturumu sonlandır.
+            return RedirectToAction("Headings", "Default");
         }
 
         public class CaptchaResponse

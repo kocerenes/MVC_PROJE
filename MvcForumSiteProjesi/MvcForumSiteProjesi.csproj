@@ -58,6 +58,12 @@
       <HintPath>..\packages\FluentValidation.10.1.0\lib\netstandard2.0\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -134,6 +140,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
+    <Compile Include="Controllers\AuthorizationController.cs" />
+    <Compile Include="Controllers\CalenderController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -153,6 +163,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Calender.cs" />
+    <Compile Include="Models\CategoryClass.cs" />
+    <Compile Include="Models\HeadingChart.cs" />
+    <Compile Include="Models\WriterChart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
@@ -2070,10 +2084,54 @@
     <Content Include="AdminLTE-3.0.4\TalentCardForm\js\jquery-1.11.1.min.js" />
     <Content Include="AdminLTE-3.0.4\TalentCardForm\js\jquery.circlechart.js" />
     <Content Include="AdminLTE-3.0.4\TalentCardForm\w3layouts-License.txt" />
+    <Content Include="AdminLTE-3.0.4\vitrin\css\aos-animation.css" />
+    <Content Include="AdminLTE-3.0.4\vitrin\css\aos.css" />
+    <Content Include="AdminLTE-3.0.4\vitrin\css\bootstrap.css" />
+    <Content Include="AdminLTE-3.0.4\vitrin\css\fontawesome-all.css" />
+    <Content Include="AdminLTE-3.0.4\vitrin\css\roadmap.css" />
+    <Content Include="AdminLTE-3.0.4\vitrin\css\simpleLightbox.css" />
+    <Content Include="AdminLTE-3.0.4\vitrin\css\snow.css" />
+    <Content Include="AdminLTE-3.0.4\vitrin\css\style.css" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\banner.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\close.png" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\contact.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\cvresim.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\gorsel1.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\gorsel2.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\gorsel3.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\gorsel4.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\gorsel5.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\gorsel6.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\gorsel7.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\gorsel8.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\gorsel9.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\exp.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\loader.gif" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\move_up.png" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\next.png" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\prev.png" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\serve.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\stats.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\images\testimonials.jpg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\index.html" />
+    <Content Include="AdminLTE-3.0.4\vitrin\js\aos.js" />
+    <Content Include="AdminLTE-3.0.4\vitrin\js\bootstrap.js" />
+    <Content Include="AdminLTE-3.0.4\vitrin\js\easing.js" />
+    <Content Include="AdminLTE-3.0.4\vitrin\js\jquery-2.2.3.min.js" />
+    <Content Include="AdminLTE-3.0.4\vitrin\js\jquery.countup.js" />
+    <Content Include="AdminLTE-3.0.4\vitrin\js\jquery.roadmap.js" />
+    <Content Include="AdminLTE-3.0.4\vitrin\js\jquery.waypoints.min.js" />
+    <Content Include="AdminLTE-3.0.4\vitrin\js\move-top.js" />
+    <Content Include="AdminLTE-3.0.4\vitrin\js\simpleLightbox.js" />
+    <Content Include="AdminLTE-3.0.4\vitrin\w3layouts-license.txt" />
+    <Content Include="AdminLTE-3.0.4\vitrin\webfonts\fa-brands-400.svg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\webfonts\fa-regular-400.svg" />
+    <Content Include="AdminLTE-3.0.4\vitrin\webfonts\fa-solid-900.svg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -2760,6 +2818,18 @@
     <Content Include="AdminLTE-3.0.4\login-form-20\__MACOSX\login-form-20\scss\bootstrap\utilities\.__text.scss" />
     <Content Include="AdminLTE-3.0.4\login-form-20\__MACOSX\login-form-20\scss\bootstrap\utilities\.__visibility.scss" />
     <Content Include="AdminLTE-3.0.4\login-form-20\__MACOSX\login-form-20\scss\bootstrap\vendor\.__rfs.scss" />
+    <Content Include="AdminLTE-3.0.4\vitrin\webfonts\fa-brands-400.eot" />
+    <Content Include="AdminLTE-3.0.4\vitrin\webfonts\fa-brands-400.ttf" />
+    <Content Include="AdminLTE-3.0.4\vitrin\webfonts\fa-brands-400.woff" />
+    <Content Include="AdminLTE-3.0.4\vitrin\webfonts\fa-brands-400.woff2" />
+    <Content Include="AdminLTE-3.0.4\vitrin\webfonts\fa-regular-400.eot" />
+    <Content Include="AdminLTE-3.0.4\vitrin\webfonts\fa-regular-400.ttf" />
+    <Content Include="AdminLTE-3.0.4\vitrin\webfonts\fa-regular-400.woff" />
+    <Content Include="AdminLTE-3.0.4\vitrin\webfonts\fa-regular-400.woff2" />
+    <Content Include="AdminLTE-3.0.4\vitrin\webfonts\fa-solid-900.eot" />
+    <Content Include="AdminLTE-3.0.4\vitrin\webfonts\fa-solid-900.ttf" />
+    <Content Include="AdminLTE-3.0.4\vitrin\webfonts\fa-solid-900.woff" />
+    <Content Include="AdminLTE-3.0.4\vitrin\webfonts\fa-solid-900.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2831,10 +2901,29 @@
     <Content Include="Views\WriterPanelContent\MyContent.cshtml" />
     <Content Include="Views\Login\WriterLogin.cshtml" />
     <Content Include="Views\TalentCard\Index.cshtml" />
+    <Content Include="Views\Default\Headings.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\WriterPanel\AllHeading.cshtml" />
+    <Content Include="Views\WriterPanelContent\AddContent.cshtml" />
+    <Content Include="Views\WriterPanelContent\ToDoList.cshtml" />
+    <Content Include="Views\Home\HomePage.cshtml" />
+    <Content Include="Views\Content\GetAllContent.cshtml" />
+    <Content Include="Views\Chart\Index.cshtml" />
+    <Content Include="Views\Heading\HeadingReport.cshtml" />
+    <Content Include="Views\Authorization\Index.cshtml" />
+    <Content Include="Views\Chart\HeadingPieChart.cshtml" />
+    <Content Include="Views\Chart\WriterColumnChart.cshtml" />
+    <Content Include="Views\Authorization\AddAdmin.cshtml" />
+    <Content Include="Views\Authorization\EditAdmin.cshtml" />
+    <Content Include="Views\TalentCard\TalentCard.cshtml" />
+    <Content Include="Views\TalentCard\AddTalent.cshtml" />
+    <Content Include="Views\TalentCard\UpdateTalent.cshtml" />
+    <Content Include="Views\Calender\Index.cshtml" />
+    <Content Include="Views\Gallery\ImageAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Images\Gallery\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>

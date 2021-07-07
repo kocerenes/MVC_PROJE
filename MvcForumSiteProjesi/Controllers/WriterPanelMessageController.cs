@@ -19,14 +19,16 @@ namespace MvcForumSiteProjesi.Controllers
 
         public ActionResult Inbox()
         {
-            var messageValues = messageManager.GetListInbox();
+            string writerMail = (string)Session["WriterMail"];
+            var messageValues = messageManager.GetListInbox(writerMail);
             return View(messageValues);
         }
 
         //Gönderilen mesajlar
         public ActionResult Sendbox()
         {
-            var messageValues = messageManager.GetListSendbox();
+            string writerMail = (string)Session["WriterMail"];
+            var messageValues = messageManager.GetListSendbox(writerMail);
             return View(messageValues);
         }
 
@@ -56,9 +58,11 @@ namespace MvcForumSiteProjesi.Controllers
         {
             ValidationResult results = messageValidations.Validate(message);
 
+            string senderMail = (string)Session["WriterMail"];
+
             if (results.IsValid)
             {
-                message.SenderMail = "gizem@gmail.com";
+                message.SenderMail = senderMail;
                 message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 messageManager.MessageAdd(message);
                 return RedirectToAction("SendBox");

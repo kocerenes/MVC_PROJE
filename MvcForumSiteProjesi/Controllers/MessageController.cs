@@ -18,15 +18,15 @@ namespace MvcForumSiteProjesi.Controllers
         MessageValidator messageValidator = new MessageValidator();
 
         [Authorize]
-        public ActionResult Inbox()
+        public ActionResult Inbox(string p)
         {
-            var messageList = messageManager.GetListInbox();
+            var messageList = messageManager.GetListInbox(p);
             return View(messageList);
         }
 
-        public ActionResult Sendbox()
+        public ActionResult Sendbox( string p)
         {
-            var messageListSend = messageManager.GetListSendbox();
+            var messageListSend = messageManager.GetListSendbox(p);
             return View(messageListSend);
         }
 

@@ -1,0 +1,36 @@
+﻿
+@using EntityLayer.Concrete
+@model List<TalentCard>
+
+@{
+    ViewBag.Title = "TalentCard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>YETENEK LİSTESİ</h2>
+<br />
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Yetenek Adı</th>
+        <th>Oran</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.Skill1</th>
+            <td>@item.Rate1</td>
+            <td><a href="/TalentCard/UpdateTalent/@item.SkillId" class="btn btn-outline-warning">Güncelle</a></td>
+            <td><a href="/TalentCard/DeleteTalent/@item.SkillId" class="btn btn-outline-danger">Sil</a></td>
+        </tr>
+    }
+
+
+</table>
+

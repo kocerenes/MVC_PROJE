@@ -7,6 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
+using BusinessLayer.ValidationRules;
+using FluentValidation.Results;
 
 namespace MvcForumSiteProjesi.Controllers
 {
@@ -16,11 +20,38 @@ namespace MvcForumSiteProjesi.Controllers
 
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
         Context context = new Context();
 
+        [HttpGet]
         public ActionResult WriterProfile()
         {
-            return View();
+            string writerMail = (string)Session["WriterMail"];
+            int id = context.Writers.Where(x => x.WriterMail == writerMail).Select(y => y.WriterId).FirstOrDefault();
+            var writerValues = writerManager.GetById(id);
+            return View(writerValues);
+        }
+
+        [HttpPost]
+        public ActionResult WriterProfile(Writer writer)
+        {
+            WriterValidator writerValidator = new WriterValidator();
+            ValidationResult validationResult = writerValidator.Validate(writer);
+
+            if (validationResult.IsValid)
+            {
+                writerManager.WriterUpdate(writer);
+                return RedirectToAction("AllHeading", "WriterPanel");
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+                return View();
+            }
+            
         }
 
         public ActionResult MyHeading(string headingMail)
@@ -85,6 +116,13 @@ namespace MvcForumSiteProjesi.Controllers
             myHeadingValue.HeadingStatus = false;
             headingManager.HeadingDelete(myHeadingValue);
             return RedirectToAction("MyHeading");
+        }
+
+        // Tüm başlıklar
+        public ActionResult AllHeading(int pageNumber = 1)
+        {
+            var headingValues = headingManager.GetList().ToPagedList(pageNumber, 4);
+            return View(headingValues);
         }
     }
 }
