@@ -42,7 +42,6 @@ namespace MvcForumSiteProjesi.Controllers
 
             }
             return View();
-
         }
     }
 }
